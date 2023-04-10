@@ -1,25 +1,33 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHashHistory } from "vue-router";
+import Login from "../components/login.vue";
+import Home from "../components/home.vue";
+import { ElMessage } from "element-plus";
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    redirect: "/login",
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
-
+    path: "/login",
+    component: Login,
+  },
+  {
+    path: "/home",
+    component: Home,
+  },
+];
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
-
-export default router
+  history: createWebHashHistory(),
+  routes,
+});
+//路由守卫
+router.beforeEach((to, from, next) => {
+  if (to.path === "/login") return next();
+  //获取Token
+  const tokenStr = sessionStorage.getItem("token");
+  if (tokenStr) next();
+  return next("./login");
+  ElMessage.error("请先登录");
+});
+export default router;
