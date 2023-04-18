@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Login from "../components/login.vue";
-import Home from "../components/home.vue";
+import Login from "../views/login.vue";
+import Home from "../views/home.vue";
+import Welcome from "../components/welcome.vue";
+import Users from "../views/users.vue";
 import { ElMessage } from "element-plus";
 
 const routes = [
@@ -15,6 +17,17 @@ const routes = [
   {
     path: "/home",
     component: Home,
+    redirect: "/welcome",
+    children: [
+      {
+        path: "/welcome",
+        component: Welcome,
+      },
+      {
+        path: "/users",
+        component: Users,
+      },
+    ],
   },
 ];
 const router = createRouter({
@@ -26,8 +39,8 @@ router.beforeEach((to, from, next) => {
   if (to.path === "/login") return next();
   //获取Token
   const tokenStr = sessionStorage.getItem("token");
-  if (tokenStr) next();
-  return next("./login");
+  if (tokenStr) return next();
+  next("./login");
   ElMessage.error("请先登录");
 });
 export default router;
