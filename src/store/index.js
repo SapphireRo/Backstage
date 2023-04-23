@@ -8,6 +8,8 @@ export default createStore({
     rightsList: [],
     //权限列表
     rolesList: [],
+    //商品分类列表
+    cateList: [],
     //添加用户的表单数据
     addForm: {
       username: "",
@@ -30,6 +32,8 @@ export default createStore({
     IsEditDialogVisible: false,
     //分配权限对话框
     IsPowerDialogVisible: false,
+    //添加分类对话框
+    IsAddCateDialog: false,
     //查询到的用户信息对象
     editForm: {},
   },
@@ -47,6 +51,10 @@ export default createStore({
     UpdataRolesList: function (state, value) {
       state.rolesList = value;
     },
+    //权限列表更新
+    UpdataCateList: function (state, value) {
+      state.cateList = value;
+    },
     //分页总数的改变
     UpdataTotal: function (state, value) {
       state.total = value;
@@ -62,7 +70,8 @@ export default createStore({
     //页码改变的事件
     HandleCurrentChange: function (state, value) {
       state.queryInfo.pagenum = value;
-    }, //修改用户
+    },
+    //修改用户
     EditForm: function (state, value) {
       state.editForm = value;
     },
@@ -77,6 +86,10 @@ export default createStore({
     //分配权限对话框
     PowerDialogVisible: function (state, value) {
       state.IsPowerDialogVisible = value;
+    },
+    //添加分类对话框
+    CateDialogVisible: function (state, value) {
+      state.IsAddCateDialog = value;
     },
   },
   actions: {},

@@ -10,8 +10,8 @@
 <script>
 import { reactive, toRefs } from "vue";
 
-import Breadcrumb from "../components/breadcrumb.vue";
-import UserCard from "../components/User/userCard.vue";
+import Breadcrumb from "../../components/breadcrumb.vue";
+import UserCard from "../../components/User/userCard.vue";
 export default {
   components: {
     Breadcrumb,

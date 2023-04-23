@@ -3,8 +3,12 @@
     <!-- 面包屑导航区 -->
     <Breadcrumb :breadcrumb="breadcrumb"></Breadcrumb>
     <!-- 卡片区域 -->
-    <RightsCard :card="card">
-    </RightsCard>
+    <RolesCard
+      :card="card"
+      @getRolesList="getRolesList"
+    >
+    </RolesCard>
+
   </div>
 </template>
 
@@ -13,38 +17,38 @@ import { ElMessage } from "element-plus";
 import { reactive, ref, toRefs } from "vue";
 import axios from "axios";
 import { useStore } from "vuex";
-import Breadcrumb from "../components/breadcrumb.vue";
-import RightsCard from "../components/Roles/rgihtsCard.vue";
+import Breadcrumb from "../../components/breadcrumb.vue";
+import RolesCard from "../../components/Roles/rolesCard.vue";
 export default {
   components: {
     Breadcrumb,
-    RightsCard,
+    RolesCard,
   },
   setup() {
+    const store = useStore();
     //面包屑数据
     const breadcrumb = reactive({
       name1: "权限管理",
-      name2: "权限列表",
+      name2: "角色列表",
     });
     //卡片屑数据
     const card = reactive({
       el_column1: {
-        label: "权限名称",
-        prop: "authName",
+        label: "角色名称",
+        prop: "roleName",
       },
       el_column2: {
-        label: "路径",
-        prop: "path",
+        label: "角色描述",
+        prop: "roleDesc",
       },
       el_column3: {
-        label: "权限等级",
-        prop: "level",
+        label: "操作",
+        prop: "id",
       },
     });
-    //获取权限列表
-    const store = useStore();
-    const getRightsList = async () => {
-      const { data: result } = await axios.get("rights/list");
+    //角色管理列表
+    const getRolesList = async () => {
+      const { data: result } = await axios.get("roles");
       //console.log(result);
       if (result.meta.status !== 200)
         return ElMessage.error("获取权限列表失败");
@@ -52,15 +56,15 @@ export default {
         message: result.meta.msg,
         type: "success",
       });
-      store.commit("UpdataRightsList", result.data);
-      //console.log(store.state.rightsList);
+      store.commit("UpdataRolesList", result.data);
+      //console.log(store.state.rolesList);
     };
-    getRightsList();
+    getRolesList();
     return {
       breadcrumb,
-      store,
       card,
-      getRightsList,
+      store,
+      getRolesList,
     };
   },
 };

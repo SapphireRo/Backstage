@@ -1,10 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Login from "../views/login.vue";
+import Login from "../views/Login/login.vue";
 import Home from "../views/home.vue";
 import Welcome from "../components/welcome.vue";
-import Users from "../views/users.vue";
-import Rights from "../views/rights.vue";
-import Roles from "../views/roles.vue";
+import Users from "../views/User/users.vue";
+import Rights from "../views/Rights/rights.vue";
+import Roles from "../views/Rights/roles.vue";
+import Categories from "../views/Goods/categories.vue";
 import { ElMessage } from "element-plus";
 
 const routes = [
@@ -36,6 +37,10 @@ const routes = [
       {
         path: "/roles",
         component: Roles,
+      },
+      {
+        path: "/categories",
+        component: Categories,
       },
     ],
   },
