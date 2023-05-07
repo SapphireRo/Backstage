@@ -124,7 +124,7 @@ import { ElMessage, ElMessageBox } from "element-plus";
 import axios from "axios";
 import { ref, reactive, toRefs } from "vue";
 import { useStore } from "vuex";
-import AddDialog from "../../components/Goods/Dialog/addDialog.vue";
+import AddDialog from "../../components/Goods/Dialog/CateAddDialog.vue";
 export default {
   components: { AddDialog },
   setup() {

@@ -5,9 +5,6 @@ import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-//树形插件
-import ZkTable from "vue-table-with-tree-grid";
-
 // 导入字体图标
 import "./assets/fonts/iconfont.css";
 //引入全局样式
@@ -23,7 +20,7 @@ axios.interceptors.request.use((config) => {
 });
 app.config.globalProperties.$http = axios; //进行全局挂载
 
-app.use(ElementPlus).use(store).use(router).use(ZkTable);
+app.use(ElementPlus).use(store).use(router);
 app.mount("#app");
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);

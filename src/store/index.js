@@ -10,6 +10,8 @@ export default createStore({
     rolesList: [],
     //商品分类列表
     cateList: [],
+    //商品参数列表
+
     //添加用户的表单数据
     addForm: {
       username: "",
@@ -51,7 +53,7 @@ export default createStore({
     UpdataRolesList: function (state, value) {
       state.rolesList = value;
     },
-    //权限列表更新
+    //商品分类更新
     UpdataCateList: function (state, value) {
       state.cateList = value;
     },

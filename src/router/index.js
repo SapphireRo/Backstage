@@ -6,6 +6,7 @@ import Users from "../views/User/users.vue";
 import Rights from "../views/Rights/rights.vue";
 import Roles from "../views/Rights/roles.vue";
 import Categories from "../views/Goods/categories.vue";
+import Params from "../views/Goods/params.vue";
 import { ElMessage } from "element-plus";
 
 const routes = [
@@ -41,6 +42,10 @@ const routes = [
       {
         path: "/categories",
         component: Categories,
+      },
+      {
+        path: "/params",
+        component: Params,
       },
     ],
   },
