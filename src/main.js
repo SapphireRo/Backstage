@@ -9,6 +9,9 @@ import store from "./store";
 import "./assets/fonts/iconfont.css";
 //引入全局样式
 import "./assets/css/golble.css";
+//dayjs
+import dayjs from "dayjs";
+
 //配置axios全部变量
 const app = createApp(App);
 import axios from "axios";
@@ -18,6 +21,7 @@ axios.interceptors.request.use((config) => {
   config.headers.Authorization = window.sessionStorage.getItem("token");
   return config;
 });
+app.config.globalProperties.$dayjs = dayjs; //全局使用dayjss
 app.config.globalProperties.$http = axios; //进行全局挂载
 
 app.use(ElementPlus).use(store).use(router);

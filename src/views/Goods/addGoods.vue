@@ -3,19 +3,19 @@
     <!-- 面包屑导航区 -->
     <Breadcrumb :breadcrumb="breadcrumb"></Breadcrumb>
     <!-- 卡片区域 -->
-    <GoodsCard></GoodsCard>
+    <addGoodsCard></addGoodsCard>
 
   </div>
 </template>
-
-<script>
+  
+  <script>
 import Breadcrumb from "../../components/breadcrumb.vue";
 import { reactive } from "vue";
-import GoodsCard from "../../components/Goods/GoodsCard.vue";
+import addGoodsCard from "../../components/Goods/addGoodsCard.vue";
 export default {
   components: {
     Breadcrumb,
-    GoodsCard,
+    addGoodsCard,
   },
   setup() {
     //面包屑数据
@@ -29,6 +29,6 @@ export default {
   },
 };
 </script>
-
-<style>
+  
+  <style>
 </style>
