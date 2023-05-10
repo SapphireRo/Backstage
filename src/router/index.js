@@ -10,6 +10,8 @@ import Params from "../views/Goods/params.vue";
 import Goods from "../views/Goods/goods.vue";
 import addGoods from "../views/Goods/addGoods.vue";
 import Order from "../views/Order/order.vue";
+import Report from "../views/Report/report.vue";
+
 import { ElMessage } from "element-plus";
 
 const routes = [
@@ -61,6 +63,10 @@ const routes = [
       {
         path: "/orders",
         component: Order,
+      },
+      {
+        path: "/reports",
+        component: Report,
       },
     ],
   },
