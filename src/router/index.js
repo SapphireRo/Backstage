@@ -9,6 +9,7 @@ import Categories from "../views/Goods/categories.vue";
 import Params from "../views/Goods/params.vue";
 import Goods from "../views/Goods/goods.vue";
 import addGoods from "../views/Goods/addGoods.vue";
+import Order from "../views/Order/order.vue";
 import { ElMessage } from "element-plus";
 
 const routes = [
@@ -56,6 +57,10 @@ const routes = [
       {
         path: "/goods/add",
         component: addGoods,
+      },
+      {
+        path: "/orders",
+        component: Order,
       },
     ],
   },
