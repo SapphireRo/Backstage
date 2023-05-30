@@ -15,6 +15,8 @@ import dayjs from "dayjs";
 //配置axios全部变量
 const app = createApp(App);
 import axios from "axios";
+import "./plugins/element.js";
+import installElementPlus from "./plugins/element";
 axios.defaults.baseURL = "http://43.143.0.76:8889/api/private/v1/";
 axios.interceptors.request.use((config) => {
   //console.log(config);

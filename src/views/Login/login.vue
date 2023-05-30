@@ -160,3 +160,39 @@ export default {
   z-index: 1;
 }
 </style>
+
+data() {
+  return {
+    
+  }
+},
+computed: {
+  windowHeight() {
+    return this.rpxTopx(uni.getSystemInfoSync().windowHeight)
+  }
+},
+methods: {
+  // px转换成rpx
+  rpxTopx(px) {
+    let deviceWidth = wx.getSystemInfoSync().windowWidth
+    let rpx = (750 / deviceWidth) * Number(px)
+    return Math.floor(rpx)
+  },
+  // 发送消息
+  handleSend() {
+    //如果消息不为空
+    if (!this.chatMsg || !/^\s+$/.test(this.chatMsg)) {
+      let obj = {
+        botContent: "",
+        recordId: 0,
+        titleId: 0,
+        userContent: this.chatMsg,
+        userId: 0
+      }
+      this.msgList.push(obj);
+      this.chatMsg = '';
+    } else {
+      this.$modal.showToast('不能发送空白消息')
+    }
+  },
+}

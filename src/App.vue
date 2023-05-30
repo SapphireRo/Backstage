@@ -1,7 +1,15 @@
 <template>
-  <router-view/>
+  <div id="app">
+    <!-- 路由占位符 -->
+    <router-view></router-view>
+  </div>
 </template>
 
-<style lang="less">
+<script>
+export default {
+  name: "app",
+};
+</script>
 
+<style>
 </style>
